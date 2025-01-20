@@ -1,0 +1,8 @@
+# simple example how to change some dfault values from 
+# https://artifacthub.io/packages/helm/bitnami/wordpress
+
+wordpressUsername: eduardo
+existingSecret: custom-wp-credentials
+
+replicaCount: 3
+
