@@ -1,3 +1,8 @@
 # I am a YAML comment, and will remain in the generated YAML
 {{- /* I am a go comment, and I will not remain in the generated YAML */}}
-test: {{ .Values.test }}
+test: {{ replace " " "-" .Values.test | lower }}
+labels:
+    {{- /*The app label comes from release*/}}
+    app: {{ .Release.Name }}
+    {{- /*The chart label comes from the chart information*/}}
+    chart: {{ .Chart.Name }}
