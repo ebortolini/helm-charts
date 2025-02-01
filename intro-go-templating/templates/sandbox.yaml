@@ -6,3 +6,12 @@ labels:
     app: {{ .Release.Name }}
     {{- /*The chart label comes from the chart information*/}}
     chart: {{ .Chart.Name }}
+    {{- if eq .Values.environment "production" }}
+    environment: production
+    build: stable
+    public-ingress: true
+    {{- else }}
+    environment: dev
+    build: alpha
+    public-ingress: false
+    {{- end }}
