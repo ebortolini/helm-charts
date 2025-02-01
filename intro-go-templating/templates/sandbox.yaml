@@ -1,0 +1,3 @@
+# I am a YAML comment, and will remain in the generated YAML
+{{- /* I am a go comment, and I will not remain in the generated YAML */}}
+test: {{ .Values.test }}
