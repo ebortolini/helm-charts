@@ -1,0 +1,11 @@
+list: 
+{{ list 1 2 3 | toYaml }}
+list2: {{ toYaml (list 1 2 3) | nindent 2}}
+list3: {{ list 1 2 3 | toYaml | nindent 1 }}
+## The identation here is always related to the top element
+## in the example, the list4
+list4:
+    values:
+        example: {{ list 1 2 3 | toYaml | nindent 12 }}
+
+my-dict: {{ dict "primitive" "my string" "complex" (dict "Key1" "value1") | toYaml | nindent 1 }}
