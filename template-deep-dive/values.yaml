@@ -1,6 +1,10 @@
 test: I am a string
 environment: production
 
+## @param customName allows set a custom resource name for the Kubernetes resourses
+## Defaults to {{ .Release.Name }}-{{.Chart.Name}}
+customName: 'custom-release'
+
 ## @param replicaCount Number of nginx replicas to deploy
 replicaCount: 3
 
