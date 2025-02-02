@@ -1,0 +1,18 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+    name: {{ include "templating-deep-dive.fullName" . }}
+    labels: {{ include "templating-deep-dive.selectorLabels" . | nindent 8 }}
+spec:
+    replicas: {{ .Values.replicaCount }}
+    selector:
+        matchLabels: {{ include "templating-deep-dive.selectorLabels" . | nindent 12 }}
+    template:
+        metadata:
+            labels: {{ include "templating-deep-dive.selectorLabels" . | nindent 16 }}
+        spec:
+            containers:
+                - name: nginx
+                  image: "{{ .Values.image.name }}:{{ .Values.image.tag }}"
+                  ports:
+                    - containerPort: {{ .Values.containerPorts.http }}
