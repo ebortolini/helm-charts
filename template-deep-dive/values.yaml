@@ -23,11 +23,14 @@ containerPorts:
   http: 80
 
 ## Settings for Nginx Services
+## services is a map with the following schema
 ##
-## @param services[*].type The type of service in front of the Nginx pods
-## @param service[*].port The port where the service is receiving requests
+## @param services["*"].type The type of service in front of the Nginx pods
+## @param service["*"].port The port where the service is receiving requests
 services:
-  - type: ClusterIP
+  svc1:
+    type: ClusterIP
     port: 80
-  - type: NodePort
+  svc2:
+    type: NodePort
     port: 30007
