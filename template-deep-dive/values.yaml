@@ -16,6 +16,16 @@ image:
   name: nginx
   tag: "1.27.0"
 
+## Settings for NGINX security context
+##
+## @param securityContext.enabled
+## @param securityContext.runAsUser 
+## @param securityContext.fsGroup 
+securityContext:
+  enabled: false
+  runAsUser: 1000
+  fsGroup: 2000
+
 ## NGINX container ports
 ##
 ## @param containerPorts.http
