@@ -7,3 +7,12 @@
 app: {{ .Chart.Name }}
 release: {{ .Release.Name }}
 {{- end -}}
+
+{{/*Expects a port to be passed as conext*/}}
+{{- define "templating-deep-dive.validators.portRange" -}}
+{{- $sanitizedPort := int . -}}
+{{- if or (lt $sanitizedPort 1) (gt $sanitizedPort 65535) -}}
+{{- fail "Invalid port range" -}}
+{{- end -}}
+{{- . }}
+{{- end -}}
