@@ -22,7 +22,7 @@ image:
 ## @param securityContext.runAsUser 
 ## @param securityContext.fsGroup 
 securityContext:
-  enabled: false
+  enabled: true
   runAsUser: 1000
   fsGroup: 2000
 
