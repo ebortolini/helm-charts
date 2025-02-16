@@ -27,5 +27,6 @@ dependencies:
   - name: postgresql
     version: '16.2.2'
     repository: 'https://charts.bitnami.com/bitnami'
+    condition: postgresql.enabled
   - name: demo-subchart
     version: '0.1.0'
