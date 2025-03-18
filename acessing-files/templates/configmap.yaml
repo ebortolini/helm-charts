@@ -4,7 +4,4 @@ metadata:
     name: {{ include "accessing-files.fullname" . }}
 
 data:
-{{- range $path, $_ := .Files.Glob "files/*.properties"}}
-    {{ base $path }}: |-
-{{ $.Files.Get $path| indent 8 }}
-{{- end }}
+{{ (.Files.Glob "files/*.properties").AsConfig | indent 4}}
