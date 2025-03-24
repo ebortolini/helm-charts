@@ -121,3 +121,23 @@ nodeSelector: {}
 tolerations: []
 
 affinity: {}
+
+# Test Configuration for Helm tests
+tests:
+  enabled: true
+  container:
+    nameOverride: ''
+    imageRepository: 'alpine'
+    imageTag: 'latest'
+  scripts:
+    volumeName: 'tests'
+    volumeMountPath: '/tests'
+    runFileName: 'run.sh'
+  hookDeletePolicies:
+    - before-hook-creation
+    - hook-succeeded
+    
+
+    
+
+
